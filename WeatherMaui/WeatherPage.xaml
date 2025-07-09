@@ -1,0 +1,19 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:WeatherMaui.ViewModels"
+             x:Class="WeatherMaui.Views.WeatherPage"
+             Title="Pogoda">
+
+    <ContentPage.BindingContext>
+        <viewModels:WeatherViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="10">
+        <Entry Placeholder="Miasto"
+               Text="{Binding City}" />
+        <Button Text="Pobierz pogodę"
+                Command="{Binding LoadWeatherCommand}" />
+        <Label Text="{Binding Forecast.Description}" />
+        <Label Text="{Binding Forecast.Temperature, StringFormat='Temperatura: {0} °C'}" />
+    </VerticalStackLayout>
+</ContentPage>
